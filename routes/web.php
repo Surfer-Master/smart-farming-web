@@ -35,10 +35,10 @@ Route::middleware('auth')->prefix('/dashboard')->name('dashboard.')->group(funct
     Route::get('/', [DashboardController::class, 'index'])->name('index');
     // Route::get('/create', [DashboardController::class, 'create'])->name('create');
     // Route::post('/', [DashboardController::class, 'store'])->name('store');
-    // Route::get('/{photo}', [DashboardController::class, 'show'])->name('show');
-    // Route::get('/{photo}/edit', [DashboardController::class, 'edit'])->name('edit');
-    // Route::put('/{photo}', [DashboardController::class, 'update'])->name('update');
-    // Route::delete('/{photo}', [DashboardController::class, 'destroy'])->name('destroy');
+    // Route::get('/{id}', [DashboardController::class, 'show'])->name('show');
+    // Route::get('/{id}/edit', [DashboardController::class, 'edit'])->name('edit');
+    // Route::put('/{id}', [DashboardController::class, 'update'])->name('update');
+    // Route::delete('/{id}', [DashboardController::class, 'destroy'])->name('destroy');
 });
 
 
@@ -56,7 +56,7 @@ Route::middleware('auth')->prefix('/tanaman')->name('plants.')->group(function (
     Route::get('/', [PlantController::class, 'index'])->name('index');
     // Route::get('/create', [PlantController::class, 'create'])->name('create');
     Route::post('/', [PlantController::class, 'store'])->name('store');
-    Route::get('/{plant}', [PlantController::class, 'show'])->name('show');
+    // Route::get('/{plant}', [PlantController::class, 'show'])->name('show');
     Route::get('/{plant}/edit', [PlantController::class, 'edit'])->name('edit');
     Route::put('/{plant}', [PlantController::class, 'update'])->name('update');
     Route::delete('/{plant}', [PlantController::class, 'destroy'])->name('destroy');
@@ -64,7 +64,7 @@ Route::middleware('auth')->prefix('/tanaman')->name('plants.')->group(function (
 
 Route::middleware('auth')->prefix('/log-pengiriman')->name('node-send-logs.')->group(function () {
     Route::get('/', [NodeSendLogController::class, 'index'])->name('index');
-    Route::post('/', [NodeSendLogController::class, 'find'])->name('find');
+    // Route::post('/', [NodeSendLogController::class, 'find'])->name('find');
     // Route::get('/create', [NodeSendLogController::class, 'create'])->name('create');
     // Route::post('/', [NodeSendLogController::class, 'store'])->name('store');
     // Route::get('/{nodeSendLog}', [NodeSendLogController::class, 'show'])->name('show');
@@ -79,17 +79,7 @@ Route::middleware('auth')->prefix('/profile')->name('profile.')->group(function 
     // Route::post('/', [ProfileController::class, 'store'])->name('store');
     // Route::get('/{user}', [ProfileController::class, 'show'])->name('show');
     // Route::get('/{user}/edit', [ProfileController::class, 'edit'])->name('edit');
-    Route::put('/', [ProfileController::class, 'update'])->name('update');
-    Route::put('/change-password', [ProfileController::class, 'changePassword'])->name('change-password');
+    // Route::put('/', [ProfileController::class, 'update'])->name('update');
+    // Route::put('/change-password', [ProfileController::class, 'changePassword'])->name('change-password');
     // Route::delete('/{user}', [ProfileController::class, 'destroy'])->name('destroy');
 });
-
-// Route::prefix('/dashboard/photos')->name('photos.')->group(function () {
-//     Route::get('/', [PhotoController::class, 'index'])->name('index');
-//     Route::get('/create', [PhotoController::class, 'create'])->name('create');
-//     Route::post('/', [PhotoController::class, 'store'])->name('store');
-//     Route::get('/{photo}', [PhotoController::class, 'show'])->name('show');
-//     Route::get('/{photo}/edit', [PhotoController::class, 'edit'])->name('edit');
-//     Route::put('/{photo}', [PhotoController::class, 'update'])->name('update');
-//     Route::delete('/{photo}', [PhotoController::class, 'destroy'])->name('destroy');
-// });
