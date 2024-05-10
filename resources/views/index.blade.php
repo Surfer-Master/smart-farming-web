@@ -58,7 +58,7 @@
         <div class="container px-4 sm:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
             <div class="mb-16 lg:mt-8 xl:mt-10 xl:mr-12">
                 <h1 class="h1-large mb-5">Smart Farming: Sistem Monitoring IoT dengan Algoritma Change Detection</h1>
-                <p class="p-large mb-8">Mengurangi pengiriman data dan penyimpanan data sensor.</p>
+                <p class="p-large mb-8">Pengiriman data dan penyimpanan data sensor yang lebih sedikit</p>
                 <a class="font-semibold bg-indigo-600 text-white border border-indigo-600 hover:bg-transparent hover:text-indigo-600 rounded-full px-9 py-4"
                     href="{{ route('login') }}">Login<i class="fa-solid fa-right-to-bracket ms-2"></i></a>
             </div>
