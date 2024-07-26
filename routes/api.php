@@ -31,7 +31,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/register', 'store');
 });
 
-Route::prefix('dashboard')->name('api.dashboard.')->group(function () {
+Route::middleware('auth:sanctum')->prefix('dashboard')->name('api.dashboard.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
     // Route::post('/', [DashboardController::class, 'store'])->name('store');
     // Route::get('/{id}', [DashboardController::class, 'show'])->name('show');
@@ -39,7 +39,7 @@ Route::prefix('dashboard')->name('api.dashboard.')->group(function () {
     // Route::delete('/{id}', [DashboardController::class, 'destroy'])->name('destroy');
 });
 
-Route::prefix('plants')->name('api.plants.')->group(function () {
+Route::middleware('auth:sanctum')->prefix('plants')->name('api.plants.')->group(function () {
     // Route::get('/', [PlantController::class, 'index'])->name('index');
     // Route::post('/', [PlantController::class, 'store'])->name('store');
     Route::get('/{plant}', [PlantController::class, 'show'])->name('show');
@@ -48,7 +48,7 @@ Route::prefix('plants')->name('api.plants.')->group(function () {
     Route::get('/{plant}/soil-moistures', [PlantController::class, 'showSoilMoistures'])->name('show.soilMoistures');
 });
 
-Route::prefix('logs')->name('api.logs.')->group(function () {
+Route::middleware('auth:sanctum')->prefix('logs')->name('api.logs.')->group(function () {
     Route::get('/', [NodeSendLogController::class, 'index'])->name('index');
     // Route::post('/', [NodeSendLogController::class, 'store'])->name('store');
     // Route::get('/{nodeSendLog}', [NodeSendLogController::class, 'show'])->name('show');
@@ -56,7 +56,7 @@ Route::prefix('logs')->name('api.logs.')->group(function () {
     // Route::delete('/{nodeSendLog}', [NodeSendLogController::class, 'destroy'])->name('destroy');
 });
 
-Route::prefix('profile')->name('api.profile.')->group(function () {
+Route::middleware('auth:sanctum')->prefix('profile')->name('api.profile.')->group(function () {
     Route::get('/', [ProfileController::class, 'index'])->name('index');
     // Route::post('/', [ProfileController::class, 'store'])->name('store');
     // Route::get('/{id}', [ProfileController::class, 'show'])->name('show');
