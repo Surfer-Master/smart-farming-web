@@ -76,9 +76,11 @@ class AuthController extends Controller
             $cleanToken = $explodedToken[1];
 
             return response()->json([
-                'message' => 'success',
-                'data' => $user,
-                'token' => $cleanToken,
+                'message' => 'Login Berhasil.',
+                'data' => [
+                    'user' => $user,
+                    'token' => $cleanToken,
+                ]
             ], 200);
         } catch (ValidationException $e) {
             return response()->json(['message' => $e->getMessage(), 'errors' => $e->errors()], 422);
@@ -97,21 +99,20 @@ class AuthController extends Controller
     {
         try {
             $request->validate([
-                'token' => 'nullable|max:255',
+                'notification_token' => 'nullable|max:255',
             ]);
 
             $user = $request->user();
-            $tokenId = $user->currentAccessToken()->id;
 
             try {
-                $request->user()->tokens()->where('id', $tokenId)->delete();
-                // $deviceNotificationToken =  DeviceNotificationToken::where('token', $request->token);
+                $user->currentAccessToken()->delete();
+                // $deviceNotificationToken =  DeviceNotificationToken::where('token', $request->notification_token);
                 // $deviceNotificationToken->delete();
             } catch (Exception $exception) {
                 return response()->json(['message' => $exception->getMessage()]);
             }
 
-            return response()->json(['message' => 'Logout successful']);
+            return response()->json(['message' => 'Logout Berhasil.']);
         } catch (Exception $exception) {
             return response()->json(['message' => $exception->getMessage()], 500);
         }
