@@ -26,7 +26,7 @@ class DashboardController extends Controller
 
             return response()->json([
                 'data' => [
-                    'airTemperature' => $airTemperature,
+                    'air_temperature' => $airTemperature,
                     'humidity' => $humidity,
                     'plants' => $plants,
                 ],

@@ -60,8 +60,6 @@ class SoilMoistureController extends Controller
 
             $nodeSendLog = new NodeSendLog();
             $nodeSendLog->node_id = $request->node;
-            // $nodeSendLog->send_time = null;
-            // $nodeSendLog->receipt_time = null;
             // $nodeSendLog->delay = null;
             // $nodeSendLog->jitter = null;
             $nodeSendLog->sensor_read_count = $request->sensor_read_count;

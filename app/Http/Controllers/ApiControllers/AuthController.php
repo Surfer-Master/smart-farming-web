@@ -75,12 +75,10 @@ class AuthController extends Controller
             $explodedToken = explode('|', $token);
             $cleanToken = $explodedToken[1];
 
+            $user->token = $cleanToken;
+
             return response()->json([
-                'message' => 'Login Berhasil.',
-                'data' => [
-                    'user' => $user,
-                    'token' => $cleanToken,
-                ]
+                'data' => $user
             ], 200);
         } catch (ValidationException $e) {
             return response()->json(['message' => $e->getMessage(), 'errors' => $e->errors()], 422);

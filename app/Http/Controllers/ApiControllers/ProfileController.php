@@ -22,9 +22,7 @@ class ProfileController extends Controller
             $user = auth()->user();
 
             return response()->json([
-                'data' => [
-                    'profile' => $user,
-                ]
+                'data' => $user,
             ], 200);
         } catch (QueryException $e) {
             return response()->json(['message' => 'Terjadi kesalahan database.'], 500);

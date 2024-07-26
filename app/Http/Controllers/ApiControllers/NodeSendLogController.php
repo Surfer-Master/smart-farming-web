@@ -27,9 +27,7 @@ class NodeSendLogController extends Controller
                 ->paginate(15);
 
             return response()->json([
-                'data' => [
-                    'nodeSendLogs' => $nodeSendLogs,
-                ],
+                'data' => $nodeSendLogs,
             ], 200);
         } catch (QueryException $e) {
             return response()->json(['message' => 'Terjadi kesalahan database.'], 500);

@@ -45,9 +45,7 @@ class PlantController extends Controller
             $plant->soil_moistures = $plant->soilMoistures()->latest()->paginate(15);
 
             return response()->json([
-                'data' => [
-                    'plant' => $plant,
-                ]
+                'data' => $plant,
             ], 200);
         } catch (QueryException $e) {
             return response()->json(['message' => 'Terjadi kesalahan database.'], 500);
@@ -82,9 +80,7 @@ class PlantController extends Controller
             $soilMoistures = $plant->soilMoistures()->latest()->paginate(15);
 
             return response()->json([
-                'data' => [
-                    'soil_moistures' => $soilMoistures,
-                ]
+                'data' => $soilMoistures,
             ], 200);
         } catch (QueryException $e) {
             return response()->json(['message' => 'Terjadi kesalahan database.'], 500);
