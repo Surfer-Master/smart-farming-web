@@ -66,15 +66,19 @@ class DhtController extends Controller
             $nodeSendLog->data_send_count = $request->data_send_count;
             $nodeSendLog->save();
 
-            $airTemperature = new AirTemperature();
-            $airTemperature->temperature = $request->temperature;
-            $airTemperature->nodeSendLog()->associate($nodeSendLog);
-            $airTemperature->save();
+            if ($request->temperature) {
+                $airTemperature = new AirTemperature();
+                $airTemperature->temperature = $request->temperature;
+                $airTemperature->nodeSendLog()->associate($nodeSendLog);
+                $airTemperature->save();
+            }
 
-            $humidity = new Humidity();
-            $humidity->humidity = $request->humidity;
-            $humidity->nodeSendLog()->associate($nodeSendLog);
-            $humidity->save();
+            if ($request->humidity) {
+                $humidity = new Humidity();
+                $humidity->humidity = $request->humidity;
+                $humidity->nodeSendLog()->associate($nodeSendLog);
+                $humidity->save();
+            }
 
             return response()->json([
                 'message' => 'success',
