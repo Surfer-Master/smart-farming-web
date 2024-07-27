@@ -36,12 +36,14 @@ class PlantController extends Controller
         try {
             // Penggunaan paginate membuat query tambahan ke database dan menambah delay.
             // $plant->load([
+            //     'latestSoilMoisture',
             //     'soilMoistures'
             //     => function ($query) {
             //         $query->latest()->paginate(15);
             //     }
             // ]);
 
+            $plant->load(['latestSoilMoisture']);
             $plant->soil_moistures = $plant->soilMoistures()->latest()->paginate(15);
 
             return response()->json([
