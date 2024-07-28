@@ -27,8 +27,7 @@ use App\Http\Controllers\ApiControllers\SoilMoistureController;
 
 Route::controller(AuthController::class)->group(function () {
     Route::post('/login', 'authenticate');
-    Route::get('/logout', 'logout')->middleware('auth:sanctum');
-    Route::post('/register', 'store');
+    Route::post('/logout', 'logout')->middleware('auth:sanctum');
 });
 
 Route::middleware('auth:sanctum')->prefix('dashboard')->name('api.dashboard.')->group(function () {
