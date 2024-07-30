@@ -34,17 +34,8 @@ class PlantController extends Controller
     public function show(Plant $plant)
     {
         try {
-            // Penggunaan paginate membuat query tambahan ke database dan menambah delay.
-            // $plant->load([
-            //     'latestSoilMoisture',
-            //     'soilMoistures'
-            //     => function ($query) {
-            //         $query->latest()->paginate(15);
-            //     }
-            // ]);
-
             $plant->load(['node', 'latestSoilMoisture']);
-            $plant->soil_moistures = $plant->soilMoistures()->latest()->paginate(15);
+            $plant->soil_moistures = $plant->soilMoistures()->latest()->simplePaginate(15);
 
             return response()->json([
                 'data' => $plant,
@@ -79,7 +70,7 @@ class PlantController extends Controller
     public function showSoilMoistures(Plant $plant)
     {
         try {
-            $soilMoistures = $plant->soilMoistures()->latest()->paginate(15);
+            $soilMoistures = $plant->soilMoistures()->latest()->simplePaginate(15);
 
             return response()->json([
                 'data' => $soilMoistures,

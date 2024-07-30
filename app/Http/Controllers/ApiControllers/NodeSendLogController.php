@@ -24,7 +24,7 @@ class NodeSendLogController extends Controller
                 'humidity',
                 'soilMoistures' => ['plant']
             ])->latest()
-                ->paginate(15);
+                ->simplePaginate(15);
 
             return response()->json([
                 'data' => $nodeSendLogs,
