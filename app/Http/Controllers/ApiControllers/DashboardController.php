@@ -22,7 +22,7 @@ class DashboardController extends Controller
         try {
             $airTemperature = AirTemperature::latest()->first();
             $humidity = Humidity::latest()->first();
-            $plants = Plant::with(['latestSoilMoisture'])->get();
+            $plants = Plant::with(['node', 'latestSoilMoisture'])->get();
 
             return response()->json([
                 'data' => [

@@ -43,7 +43,7 @@ class PlantController extends Controller
             //     }
             // ]);
 
-            $plant->load(['latestSoilMoisture']);
+            $plant->load(['node', 'latestSoilMoisture']);
             $plant->soil_moistures = $plant->soilMoistures()->latest()->paginate(15);
 
             return response()->json([
