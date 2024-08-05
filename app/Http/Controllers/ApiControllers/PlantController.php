@@ -35,7 +35,7 @@ class PlantController extends Controller
     {
         try {
             $plant->load(['node', 'latestSoilMoisture']);
-            $plant->soil_moistures = $plant->soilMoistures()->latest()->simplePaginate(15);
+            $plant->soil_moistures = $plant->soilMoistures()->latest()->simplePaginate(15)->items();
 
             return response()->json([
                 'data' => $plant,
