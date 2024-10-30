@@ -58,10 +58,6 @@ class DhtController extends Controller
 
             $nodeSendLog = new NodeSendLog();
             $nodeSendLog->node_id = $request->node;
-            // $nodeSendLog->send_time = null;
-            // $nodeSendLog->receipt_time = null;
-            // $nodeSendLog->delay = null;
-            // $nodeSendLog->jitter = null;
             $nodeSendLog->sensor_read_count = $request->sensor_read_count;
             $nodeSendLog->data_send_count = $request->data_send_count;
             $nodeSendLog->save();
